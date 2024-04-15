@@ -1,0 +1,140 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Drone",
+      "dimensao": [
+        {
+          "Largura": "25"
+        },
+        {
+          "Comprimento": "25"
+        },
+        {
+          "Alura": "20"
+        }
+      ],
+
+      "peso": "2",
+      "descricao": "Drone de Controle Remoto",
+
+      "classe": [
+        {
+          "classe1": "Eletronico"
+        },
+        {
+          "classe2": "Brinquedo"
+        },
+        {
+          "classe3": "Hobby"
+        }
+      ],
+
+      "avaliacao": [
+        {
+          "id": "1",
+          "avaliacaoResultado": "1"
+        },
+        {
+          "id": "2",
+          "avaliacaoResultado": "3"
+        },
+        {
+          "id": "3",
+          "avaliacaoResultado": "5"
+        }
+      ]
+    },
+
+    {
+      "id": "2",
+      "nome": "Lança Granada",
+      "dimensao": [
+        {
+          "Largura": "60"
+        },
+        {
+          "Comprimento": "1010"
+        },
+        {
+          "Alura": "70"
+        }
+      ],
+
+      "peso": "7",
+      "descricao": "RPG de Uso Militar",
+
+      "classe": [
+        {
+          "classe1": "Dispositivo de Ataque"
+        },
+        {
+          "classe2": "Armanento Belico"
+        },
+        {
+          "classe3": "Auto Defesa"
+        }
+      ],
+
+      "avaliacao": [
+        {
+          "id": "1",
+          "avaliacaoResultado": "3"
+        },
+        {
+          "id": "2",
+          "avaliacaoResultado": "5"
+        },
+        {
+          "id": "3",
+          "avaliacaoResultado": "4"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "nome": "Carro de Brinquedo",
+      "dimensao": [
+        {
+          "Largura": "100"
+        },
+        {
+          "Comprimento": "50"
+        },
+        {
+          "Alura": "37"
+        }
+      ],
+
+      "peso": "1",
+      "descricao": "Carro de Brinquedo de Controle Remoto",
+
+      "classe": [
+        {
+          "classe1": "Infantil"
+        },
+        {
+          "classe2": "Brinquedos"
+        },
+        {
+          "classe3": "Familia"
+        }
+      ],
+
+      "avaliacao": [
+        {
+          "id": "1",
+          "avaliacaoResultado": "2"
+        },
+        {
+          "id": "2",
+          "avaliacaoResultado": "5"
+        },
+        {
+          "id": "3",
+          "avaliacaoResultado": "1"
+        }
+      ]
+    }
+  ]
+}
