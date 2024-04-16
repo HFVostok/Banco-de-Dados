@@ -1,9 +1,6 @@
 -- Criar banco de dados
 CREATE DATABASE hiago_fernando_de_jesus;
 
--- Usar o banco de dados criado
-USE hiago_fernando_de_jesus;
-
 -- Tabela "Clientes"
 CREATE TABLE Clientes (
     ID INT PRIMARY KEY,
@@ -55,7 +52,7 @@ CREATE TABLE Produtos_Categorias (
 );
 
 -- Tabela "Funcionários" (anteriormente "Empregados")
-CREATE TABLE Funcionários (
+CREATE TABLE Empregados (
     ID INT PRIMARY KEY,
     Nome VARCHAR(50) NOT NULL,
     Sobrenome VARCHAR(50) NOT NULL,
@@ -76,13 +73,15 @@ CREATE TABLE Vendas (
 -- Alterações de Tabelas
 ALTER TABLE Clientes ADD Telefone VARCHAR(20);
 
-ALTER TABLE Produtos MODIFY Descrição TEXT NULL;
+-- PostgreSQL, SQL Server
+ALTER TABLE Produtos ALTER COLUMN Descrição DROP NOT NULL;
 
-ALTER TABLE Pedidos DROP FOREIGN KEY FK_Pedidos_Clientes;
+-- PostgreSQL, SQL Server
+ALTER TABLE Pedidos DROP CONSTRAINT pedidos_id_cliente_fkey;
+
 
 -- Renomear a tabela "Empregados" para "Funcionários"
 ALTER TABLE Empregados RENAME TO Funcionários;
-
 
 INSERT INTO Clientes (ID, Nome, Sobrenome, Email, Telefone)
 VALUES
@@ -143,12 +142,23 @@ VALUES
     (4, 'Patrícia', 'Santos', 'Vendedor'),
     (5, 'Laura', 'Ferreira', 'Atendente');
 
+
+ALTER TABLE Pedidos ADD COLUMN Status VARCHAR(20) DEFAULT 'Em andamento';
+
+UPDATE Pedidos
+SET Status = CASE 
+              WHEN ID <= 5 THEN 'Em andamento'
+              WHEN ID > 5 AND ID <= 8 THEN 'Concluído'
+              ELSE 'Cancelado'
+           END;
+
+
 UPDATE Produtos
 SET Preço = 59.99
 WHERE ID = 3;
 
 UPDATE Funcionários
-SET Cargo = 'Supervisor'
+SET Cargo = 'Gerente'
 WHERE ID = 1;
 
 DELETE FROM Clientes
@@ -175,5 +185,9 @@ FROM Pedidos p
 JOIN Clientes c ON p.ID_Cliente = c.ID
 WHERE p.Data_Pedido >= DATE_SUB(CURDATE(), INTERVAL 30 DAY);
 
-SELECT p
+SELECT p.*
+FROM Produtos p
+JOIN Produtos_Categorias pc ON p.ID = pc.ID_Produto
+JOIN Categorias c ON pc.ID_Categoria = c.ID
+WHERE c.Nome = 'Eletrônicos';
 
